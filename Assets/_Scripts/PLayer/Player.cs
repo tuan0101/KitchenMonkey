@@ -5,7 +5,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Player Instance { get; private set; }
+
+    // EventHanlder let us know what object triggered the event => useful in some cases
     public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
+    // event Action not require to pass an object sender
+    public event Action<ClearCounter> OnCounterChanged;
     public class OnSelectedCounterChangedEventArgs : EventArgs
     {
         public ClearCounter _selectedCounter;
@@ -18,6 +23,13 @@ public class Player : MonoBehaviour
     bool isWalking;
     Vector3 lastInteractDir;
     ClearCounter selectedCounter;
+
+    private void Awake()
+    {
+        if (Instance != null)
+            Debug.LogError("there is more than one Player Instance!");
+        Instance = this;
+    }
 
     private void Start()
     {
