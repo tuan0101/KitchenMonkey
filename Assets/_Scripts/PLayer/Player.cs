@@ -10,7 +10,8 @@ public class Player : MonoBehaviour
     // EventHanlder let us know what object triggered the event => useful in some cases
     public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
     // event Action not require to pass an object sender
-    public event Action<ClearCounter> OnCounterChanged;
+    //public event Action<ClearCounter> OnCounterChanged;
+
     public class OnSelectedCounterChangedEventArgs : EventArgs
     {
         public ClearCounter _selectedCounter;

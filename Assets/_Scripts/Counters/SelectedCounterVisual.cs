@@ -27,9 +27,9 @@ public class SelectedCounterVisual : MonoBehaviour
             Hide();
         }
     }
+
     private void Player_OnSelectedCounterChanged(object sender, Player.OnSelectedCounterChangedEventArgs e)
     {
-        Debug.Log("who trigger me? : " + sender.ToString());
         if (e._selectedCounter == clearCounter)
         {
             Show();
@@ -39,6 +39,7 @@ public class SelectedCounterVisual : MonoBehaviour
             Hide();
         }
     }
+
     void Show()
     {
         visualGameObject.SetActive(true);
